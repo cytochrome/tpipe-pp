@@ -26,5 +26,5 @@ clean:
 	rm -f $(OBJS) $(OUT_NAME)
 
 install: all
-	cp -f $OUT_NAME $(PREFIX)/bin/$OUT_NAME
+	cp -f $(OUT_NAME) $(PREFIX)/bin/$(OUT_NAME)
 
