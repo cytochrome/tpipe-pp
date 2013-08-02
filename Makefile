@@ -20,7 +20,7 @@ static: $(OBJS)
 	$(CXX) $(OBJS) $(CXXFLAGS) $(LDFLAGS_S) -o $(OUT_NAME)-static
 
 dynamic: $(OBJS)
-	$(CXX) $(OBJS) $(CCCFLAGS) $(LDFLAGS) -o $(OUT_NAME)
+	$(CXX) $(OBJS) $(CXXFLAGS) $(LDFLAGS) -o $(OUT_NAME)
 
 clean:
 	rm -f $(OBJS) $(OUT_NAME)

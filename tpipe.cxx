@@ -128,8 +128,8 @@ struct PipeCreator {
 };
 
 struct PipePrinter {
-    char& c_;
-    PipePrinter( char& c ): c_(c) {}
+    int& c_;
+    PipePrinter( int& c ): c_(c) {}
     void operator() (FILE* fp){
         std::fputc(c_,fp);
     }
@@ -147,7 +147,7 @@ int tpipe_main( StringV& pipeCmds, bool force, bool flush){
 
         // failed
         if( !force && i != pipeCmds.end()){ 
-            goto stop_by_error:
+            goto stop_by_error;
         }
     }
 
@@ -159,14 +159,13 @@ int tpipe_main( StringV& pipeCmds, bool force, bool flush){
 
     // main
     {
-        char ch;
+        int ch = std::fgetc(stdin);
         PipePrinter pp(ch);
 
-        while( !std::feof(stdin) ) {
-            ch = std::fgetc(stdin);
-
+        while( ch != EOF ){
             std::fputc(ch,stdout);
             std::for_each(pipes.begin(),pipes.end(),pp);
+            ch = std::fgetc(stdin);
         }
     }
 
