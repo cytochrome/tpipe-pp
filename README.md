@@ -33,7 +33,7 @@ here is usage from (my) program help.
 
 ##Examples##
 
-      $ echo "mew" | tpipe "cat" "cat" | cat
+      $ echo "mew" | tpipe "cat" "cat" "cat | cat" | cat
       mew
       mew
       mew
