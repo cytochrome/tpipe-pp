@@ -14,7 +14,7 @@ OBJS     := tpipe.o
 all: dynamic
 
 .cxx.o:
-	$(CXX) -c $(CCCFLAGS) $< -o $@
+	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 static: $(OBJS)
 	$(CXX) $(OBJS) $(CXXFLAGS) $(LDFLAGS_S) -o $(OUT_NAME)-static

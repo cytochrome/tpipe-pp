@@ -26,7 +26,7 @@ int main(int argc, char** argv){
         opt_v.add_options()
                 ("version,v",  "show version.")
                 ("help,h",     "show this message.")
-                ("buffer,b",   "stop disabling buffering.(doesnt means do buffering)")
+                ("buffer,b",   "stop disabling buffering.(it doesn't mean do buffering)")
                 ("force,f",    "ignore error.")
             ;
 
