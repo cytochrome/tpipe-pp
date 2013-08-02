@@ -147,7 +147,7 @@ int tpipe_main( StringV& pipeCmds, bool force, bool flush){
 
         // failed
         if( !force && i != pipeCmds.end()){ 
-            goto error;
+            goto stop_by_error:
         }
     }
 
@@ -159,10 +159,12 @@ int tpipe_main( StringV& pipeCmds, bool force, bool flush){
 
     // main
     {
-        char ch = std::fgetc(stdin);
+        char ch;
         PipePrinter pp(ch);
 
-        while( ch = EOF ) {
+        while( !std::feof(stdin) ) {
+            ch = std::fgetc(stdin);
+
             std::fputc(ch,stdout);
             std::for_each(pipes.begin(),pipes.end(),pp);
         }
@@ -173,7 +175,7 @@ int tpipe_main( StringV& pipeCmds, bool force, bool flush){
     std::for_each(pipes.begin(),pipes.end(),::pclose);
 	return 0;
 
-error:
+stop_by_error:
     std::cerr << "an error occured. stop." <<  std::endl;
     fclose(stdout);
     std::for_each(pipes.begin(),pipes.end(),::pclose);

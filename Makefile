@@ -11,7 +11,7 @@ OBJS     := tpipe.o
 
 .SUFFIXES: .cxx
 
-all: dynamic static
+all: dynamic
 
 .cxx.o:
 	$(CXX) -c $(CCCFLAGS) $< -o $@
