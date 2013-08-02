@@ -1,18 +1,21 @@
 tpipe++  ...  tpipe clone with Unbuffered features.
 ===
 
-
 ##Overview##
 
-**tpipe** is very useful program created by Juanjo Garcia.
-
-but when I use it as pipe duplicator with dzen2,
-it doesn't output characters to pipe immediately,
-because of buffered-io between stdin/out/pipe (probably).
-
-tpipe++ fixed this issue, and written in c++ on the way :p
+**tpipe++** is unbuffered version of **tpipe**
+which duplicates stdin to command-lines which has passed.
 
 
+###details...###
+**tpipe**, which has created by Juanjo Garcia,
+with basic features to duplicate pipes, is very useful program.
+
+When I used tpipe with dzen2, the output characters wouldn't be shown immediately.
+I thought it may be caused by buffered-io between stdin/out/pipe.
+
+and I wrote unbuffered piping program, in c++ on the way :p
+and the issue is disappeared.
 
 -----
 ##Usage##
